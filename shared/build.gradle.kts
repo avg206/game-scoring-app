@@ -26,10 +26,7 @@ kotlin {
     )
         .takeIf { "XCODE_VERSION_MAJOR" in System.getenv().keys } // Export the framework only for Xcode builds
         ?.forEach {
-            // This `shared` framework is exported for app-ios-swift
             it.binaries.framework {
-                baseName = "shared" // Used in app-ios-swift
-
                 export(libs.decompose.decompose)
                 export(libs.essenty.lifecycle)
             }

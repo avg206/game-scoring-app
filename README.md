@@ -66,17 +66,6 @@ This is an Xcode project that builds an iOS mobile application with Compose UI.
 
 It makes use of the shared code from the modules `shared` and `compose-ui`.
 
-### `app-ios-swift`
-
-This is an Xcode project that builds an iOS mobile application with SwiftUI.
-
-This module uses only the `shared` module and SwiftUI for its UI (instead of Compose).
-
-> **Note**
-> In practice you normally have either `app-ios-compose` or `app-ios-swift`.
->
-> Therefore, do not hesitate to merge them or delete one of the two.
-
 ## Running the project
 
 Depending on the platform you want to build for and run the project on, different gradle tasks may
@@ -93,14 +82,6 @@ If you have installed the Kotlin Multiplatform Mobile plugin you can simply sele
 from the run configurations and run the app.
 
 Alternatively you can open `app-ios-compose/app-ios-compose.xcodeproj` in XCode and launch the project
-from there.
-
-### For iOS (Swift)
-
-If you have installed the Kotlin Multiplatform Mobile plugin you can simply select `app-ios-swift`
-from the run configurations and run the app.
-
-Alternatively you can open `app-ios-swift/app-ios-swift.xcodeproj` in XCode and launch the project
 from there.
 
 ## Further Reading
