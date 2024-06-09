@@ -45,7 +45,7 @@ The project consists of multiple modules:
 ### `shared`
 
 This is a Kotlin module that contains the shared logic of all platforms. This also includes the
-Decompose implementation. 
+Decompose implementation.
 
 ### `compose-ui`
 
@@ -53,12 +53,6 @@ This is a Kotlin module that contains the UI written with Compose Multiplatform 
 across all platforms.
 
 It depends on the `shared` module as it uses the component interfaces from Decompose.
-
-### `app-desktop`
-
-This is a Kotlin module that contains and builds the desktop (JVM) application.
-
-It makes use of the shared code from the modules `shared` and `compose-ui`.
 
 ### `app-android`
 
@@ -80,8 +74,8 @@ This module uses only the `shared` module and SwiftUI for its UI (instead of Com
 
 > **Note**
 > In practice you normally have either `app-ios-compose` or `app-ios-swift`.
-> 
-> Therefore, do not hesitate to merge them or delete one of the two. 
+>
+> Therefore, do not hesitate to merge them or delete one of the two.
 
 ## Running the project
 
@@ -92,12 +86,6 @@ be used.
 
 When using Android Studio you can simply select `app-android` from the run configurations and run
 the app.
-
-### For Desktop
-
-```bash
-./gradlew :app-desktop:run
-```
 
 ### For iOS (Compose)
 
