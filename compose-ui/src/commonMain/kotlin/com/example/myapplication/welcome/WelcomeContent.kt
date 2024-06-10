@@ -20,37 +20,37 @@ import com.example.myapplication.shared.welcome.WelcomeComponent
 
 @Composable
 internal fun WelcomeContent(
-    component: WelcomeComponent,
-    modifier: Modifier = Modifier,
+  component: WelcomeComponent,
+  modifier: Modifier = Modifier,
 ) {
-    val model by component.model.subscribeAsState()
+  val model by component.model.subscribeAsState()
 
-    Scaffold(
-        modifier = modifier,
-        topBar = {
-            TopAppBar(
-                title = { Text(text = "Welcome Screen") },
-                navigationIcon = {
-                    IconButton(onClick = component::onBackClicked) {
-                        Icon(
-                            imageVector = Icons.AutoMirrored.Default.ArrowBack,
-                            contentDescription = "Back button",
-                        )
-                    }
-                },
+  Scaffold(
+    modifier = modifier,
+    topBar = {
+      TopAppBar(
+        title = { Text(text = "Welcome Screen") },
+        navigationIcon = {
+          IconButton(onClick = component::onBackClicked) {
+            Icon(
+              imageVector = Icons.AutoMirrored.Default.ArrowBack,
+              contentDescription = "Back button",
             )
+          }
         },
+      )
+    },
+  ) {
+    Column(
+      modifier = Modifier.fillMaxSize(),
+      horizontalAlignment = Alignment.CenterHorizontally,
+      verticalArrangement = Arrangement.Center,
     ) {
-        Column(
-            modifier = Modifier.fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center,
-        ) {
-            Button(
-                onClick = { component.onUpdateGreetingText() },
-            ) {
-                Text(model.greetingText)
-            }
-        }
+      Button(
+        onClick = { component.onUpdateGreetingText() },
+      ) {
+        Text(model.greetingText)
+      }
     }
+  }
 }

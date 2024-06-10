@@ -13,24 +13,24 @@ import com.example.myapplication.shared.main.MainComponent
 
 @Composable
 internal fun MainContent(
-    component: MainComponent,
-    modifier: Modifier = Modifier,
+  component: MainComponent,
+  modifier: Modifier = Modifier,
 ) {
-    Scaffold(
-        modifier = modifier,
-        topBar = {
-            TopAppBar(
-                title = { Text(text = "Decompose Template") },
-            )
-        },
+  Scaffold(
+    modifier = modifier,
+    topBar = {
+      TopAppBar(
+        title = { Text(text = "Decompose Template") },
+      )
+    },
+  ) {
+    Box(
+      modifier = Modifier.fillMaxSize(),
+      contentAlignment = Alignment.Center,
     ) {
-        Box(
-            modifier = Modifier.fillMaxSize(),
-            contentAlignment = Alignment.Center,
-        ) {
-            Button(onClick = component::onShowWelcomeClicked) {
-                Text(text = "Show Welcome screen")
-            }
-        }
+      Button(onClick = component::onShowWelcomeClicked) {
+        Text(text = "Show Welcome screen")
+      }
     }
+  }
 }

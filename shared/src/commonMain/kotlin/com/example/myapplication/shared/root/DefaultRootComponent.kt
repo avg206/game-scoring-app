@@ -16,48 +16,48 @@ import com.example.myapplication.shared.welcome.WelcomeComponent
 import kotlinx.serialization.Serializable
 
 class DefaultRootComponent(
-    componentContext: ComponentContext,
+  componentContext: ComponentContext,
 ) : RootComponent, ComponentContext by componentContext {
 
-    private val navigation = StackNavigation<Config>()
+  private val navigation = StackNavigation<Config>()
 
-    override val stack: Value<ChildStack<*, Child>> =
-        childStack(
-            source = navigation,
-            serializer = Config.serializer(),
-            initialConfiguration = Config.Main,
-            handleBackButton = true,
-            childFactory = ::child,
-        )
+  override val stack: Value<ChildStack<*, Child>> =
+    childStack(
+      source = navigation,
+      serializer = Config.serializer(),
+      initialConfiguration = Config.Main,
+      handleBackButton = true,
+      childFactory = ::child,
+    )
 
-    private fun child(config: Config, childComponentContext: ComponentContext): Child =
-        when (config) {
-            is Config.Main -> Child.Main(mainComponent(childComponentContext))
-            is Config.Welcome -> Child.Welcome(welcomeComponent(childComponentContext))
-        }
-
-    private fun mainComponent(componentContext: ComponentContext): MainComponent =
-        DefaultMainComponent(
-            componentContext = componentContext,
-            onShowWelcome = { navigation.push(Config.Welcome) },
-        )
-
-    private fun welcomeComponent(componentContext: ComponentContext): WelcomeComponent =
-        DefaultWelcomeComponent(
-            componentContext = componentContext,
-            onFinished = navigation::pop,
-        )
-
-    override fun onBackClicked(toIndex: Int) {
-        navigation.popTo(index = toIndex)
+  private fun child(config: Config, childComponentContext: ComponentContext): Child =
+    when (config) {
+      is Config.Main -> Child.Main(mainComponent(childComponentContext))
+      is Config.Welcome -> Child.Welcome(welcomeComponent(childComponentContext))
     }
+
+  private fun mainComponent(componentContext: ComponentContext): MainComponent =
+    DefaultMainComponent(
+      componentContext = componentContext,
+      onShowWelcome = { navigation.push(Config.Welcome) },
+    )
+
+  private fun welcomeComponent(componentContext: ComponentContext): WelcomeComponent =
+    DefaultWelcomeComponent(
+      componentContext = componentContext,
+      onFinished = navigation::pop,
+    )
+
+  override fun onBackClicked(toIndex: Int) {
+    navigation.popTo(index = toIndex)
+  }
+
+  @Serializable
+  private sealed interface Config {
+    @Serializable
+    data object Main : Config
 
     @Serializable
-    private sealed interface Config {
-        @Serializable
-        data object Main : Config
-
-        @Serializable
-        data object Welcome : Config
-    }
+    data object Welcome : Config
+  }
 }

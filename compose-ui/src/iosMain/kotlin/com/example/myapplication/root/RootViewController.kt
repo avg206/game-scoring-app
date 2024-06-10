@@ -7,6 +7,6 @@ import com.example.myapplication.shared.root.RootComponent
 import platform.UIKit.UIViewController
 
 fun rootViewController(root: RootComponent): UIViewController =
-    ComposeUIViewController {
-        RootContent(component = root, modifier = Modifier.fillMaxSize())
-    }
+  ComposeUIViewController {
+    RootContent(component = root, modifier = Modifier.fillMaxSize())
+  }

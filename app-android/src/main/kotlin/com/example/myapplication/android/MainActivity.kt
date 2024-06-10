@@ -9,13 +9,13 @@ import com.example.myapplication.shared.root.DefaultRootComponent
 
 class MainActivity : ComponentActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
 
-        val root = DefaultRootComponent(componentContext = defaultComponentContext())
+    val root = DefaultRootComponent(componentContext = defaultComponentContext())
 
-        setContent {
-            RootContent(component = root)
-        }
+    setContent {
+      RootContent(component = root)
     }
+  }
 }

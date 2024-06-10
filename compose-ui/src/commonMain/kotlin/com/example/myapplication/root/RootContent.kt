@@ -20,21 +20,21 @@ import com.example.myapplication.welcome.WelcomeContent
 
 @Composable
 fun RootContent(
-    component: RootComponent,
-    modifier: Modifier = Modifier,
+  component: RootComponent,
+  modifier: Modifier = Modifier,
 ) {
-    MaterialTheme {
-        Surface(modifier = modifier.fillMaxSize().windowInsetsPadding(WindowInsets.systemBars)) {
-            Children(
-                stack = component.stack,
-                modifier = Modifier.fillMaxSize(),
-                animation = stackAnimation(fade() + scale())
-            ) {
-                when (val instance = it.instance) {
-                    is Child.Main -> MainContent(component = instance.component)
-                    is Child.Welcome -> WelcomeContent(component = instance.component)
-                }
-            }
+  MaterialTheme {
+    Surface(modifier = modifier.fillMaxSize().windowInsetsPadding(WindowInsets.systemBars)) {
+      Children(
+        stack = component.stack,
+        modifier = Modifier.fillMaxSize(),
+        animation = stackAnimation(fade() + scale())
+      ) {
+        when (val instance = it.instance) {
+          is Child.Main -> MainContent(component = instance.component)
+          is Child.Welcome -> WelcomeContent(component = instance.component)
         }
+      }
     }
+  }
 }

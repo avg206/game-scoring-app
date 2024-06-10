@@ -7,12 +7,12 @@ import com.example.myapplication.shared.welcome.WelcomeComponent
 
 interface RootComponent {
 
-    val stack: Value<ChildStack<*, Child>>
+  val stack: Value<ChildStack<*, Child>>
 
-    fun onBackClicked(toIndex: Int)
+  fun onBackClicked(toIndex: Int)
 
-    sealed class Child {
-        class Main(val component: MainComponent) : Child()
-        class Welcome(val component: WelcomeComponent) : Child()
-    }
+  sealed class Child {
+    class Main(val component: MainComponent) : Child()
+    class Welcome(val component: WelcomeComponent) : Child()
+  }
 }
