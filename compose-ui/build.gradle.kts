@@ -9,8 +9,6 @@ plugins {
 kotlin {
   applyDefaultHierarchyTemplate()
 
-  jvm()
-
   androidTarget {
     compilations.all {
       kotlinOptions {
@@ -49,6 +47,9 @@ kotlin {
         // Decompose Libraries
         api(libs.decompose.decompose)
         implementation(libs.decompose.extensionsComposeJetbrains)
+
+        // Compose Cupertino
+        implementation(libs.cupertino)
       }
     }
   }

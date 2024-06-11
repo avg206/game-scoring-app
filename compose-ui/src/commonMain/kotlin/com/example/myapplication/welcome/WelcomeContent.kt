@@ -3,12 +3,8 @@ package com.example.myapplication.welcome
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.Button
 import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.runtime.Composable
@@ -17,7 +13,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.arkivanov.decompose.extensions.compose.subscribeAsState
 import com.example.myapplication.shared.welcome.WelcomeComponent
+import io.github.alexzhirkevich.cupertino.adaptive.AdaptiveButton
+import io.github.alexzhirkevich.cupertino.adaptive.AdaptiveIconButton
+import io.github.alexzhirkevich.cupertino.adaptive.AdaptiveScaffold
+import io.github.alexzhirkevich.cupertino.adaptive.AdaptiveTopAppBar
+import io.github.alexzhirkevich.cupertino.adaptive.ExperimentalAdaptiveApi
 
+@OptIn(ExperimentalAdaptiveApi::class)
 @Composable
 internal fun WelcomeContent(
   component: WelcomeComponent,
@@ -25,13 +27,13 @@ internal fun WelcomeContent(
 ) {
   val model by component.model.subscribeAsState()
 
-  Scaffold(
+  AdaptiveScaffold(
     modifier = modifier,
     topBar = {
-      TopAppBar(
+      AdaptiveTopAppBar(
         title = { Text(text = "Welcome Screen") },
         navigationIcon = {
-          IconButton(onClick = component::onBackClicked) {
+          AdaptiveIconButton(onClick = component::onBackClicked) {
             Icon(
               imageVector = Icons.AutoMirrored.Default.ArrowBack,
               contentDescription = "Back button",
@@ -46,7 +48,7 @@ internal fun WelcomeContent(
       horizontalAlignment = Alignment.CenterHorizontally,
       verticalArrangement = Arrangement.Center,
     ) {
-      Button(
+      AdaptiveButton(
         onClick = { component.onUpdateGreetingText() },
       ) {
         Text(model.greetingText)

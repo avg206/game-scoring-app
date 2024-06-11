@@ -1,10 +1,10 @@
 package com.example.myapplication.root
 
+import AppTheme
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.layout.windowInsetsPadding
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -17,13 +17,14 @@ import com.example.myapplication.main.MainContent
 import com.example.myapplication.shared.root.RootComponent
 import com.example.myapplication.shared.root.RootComponent.Child
 import com.example.myapplication.welcome.WelcomeContent
+import io.github.alexzhirkevich.cupertino.adaptive.ExperimentalAdaptiveApi
 
 @Composable
 fun RootContent(
   component: RootComponent,
   modifier: Modifier = Modifier,
 ) {
-  MaterialTheme {
+  AppTheme {
     Surface(modifier = modifier.fillMaxSize().windowInsetsPadding(WindowInsets.systemBars)) {
       Children(
         stack = component.stack,
