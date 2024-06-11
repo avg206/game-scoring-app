@@ -56,7 +56,7 @@ kotlin {
 }
 
 android {
-  namespace = "com.example.myapplication.compose"
+  namespace = "com.avg206.gameScoringApp.compose"
   compileSdk = libs.versions.android.compileSdk.get().toInt()
 
   defaultConfig {

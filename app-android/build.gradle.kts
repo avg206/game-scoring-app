@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-  namespace = "com.example.myapplication.android"
+  namespace = "com.avg206.gameScoringApp.android"
   compileSdk = libs.versions.android.compileSdk.get().toInt()
 
   defaultConfig {
-    applicationId = "com.example.myapplication.android"
+    applicationId = "com.avg206.gameScoringApp.android"
     minSdk = libs.versions.android.minSdk.get().toInt()
     targetSdk = libs.versions.android.targetSdk.get().toInt()
     versionCode = 1

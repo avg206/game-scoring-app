@@ -48,7 +48,7 @@ kotlin {
 }
 
 android {
-  namespace = "com.example.myapplication.shared"
+  namespace = "com.avg206.gameScoringApp.shared"
   compileSdk = libs.versions.android.compileSdk.get().toInt()
 
   defaultConfig {
